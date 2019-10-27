@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h4 class="center-align">Commented on <a href="/board/{{ message.board.id }}">{{ message.board.board_name }}</a> by {{ message.board.creator.username }}</h4>
+    {% if message %}
+            <div class="col s12 m7">
+                <div class="card horizontal hoverable">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h3>{{ message.content }}</h3>
+                        </div>
+                        <div class="card-action">
+                            <p>Posted on {{ message.date_created }} by <a href="/creator/{{ message.creator.username }}">{{ message.creator.username }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% else %}
+        <h5 class="center-align">Sorry, we couldn't find that message :(</h5>
+    {% endif %}
+</div>
+{% endblock %}

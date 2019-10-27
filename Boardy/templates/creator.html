@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="profile">
+            <h4 class="center-align">{{ creator.username }}</h4>
+        </div>
+        <div class="profile-section light-blue lighten-4 z-depth-2 hoverable">
+            <h5>Boards</h5>
+            <ul>
+                {% if boards %}
+                    {% for board in boards %}
+                        <li>Created <a href="/board/{{ board.id }}">{{ board.board_name }}</a> on {{ board.date_created }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No boards could be found :(</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="profile-section light-blue lighten-4 z-depth-2 hoverable">
+            <h5>Messages</h5>
+            <ul>
+                {% if messages %}
+                    {% for message in messages %}
+                        <li>Commented "<a href="/message/{{ message.id }}">{{ message.content }}</a>" on <a href="/board/{{ message.board.id }}">{{ message.board.board_name }}</a> by <a href="/creator/{{ message.board.creator.username }}">{{ message.board.creator.username }}</a></li>
+                    {% endfor %}
+                {% else %}
+                    <li>No messages could be found :(</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

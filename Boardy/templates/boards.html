@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h4 class="center-align">View Message Boards:</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Board Name</th>
+                <th>Creator</th>
+                <th>Date Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for board in boards %}
+            <tr>
+                <td><a href="board/{{ board.id }}">{{ board.board_name }}</a></td>
+                <td><a href="creator/{{ board.creator.user.username }}">{{ board.creator.user.username }}</a></td>
+                <td>{{ board.date_created }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
