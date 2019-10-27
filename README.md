@@ -1,6 +1,12 @@
 # Boardy
 A message board application where users can login, create their own message boards, share them, and collaborate with their friends.
 
+## Technologies Being Used:
+
+- [Django](https://www.djangoproject.com), a Python framework used for backend development.
+
+- [MaterializeCSS](https://materializecss.com), a CSS framework developed by Google using material design.
+
 ## Project Status
 
 This project is currently in development. 
